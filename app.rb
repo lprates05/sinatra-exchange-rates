@@ -11,9 +11,15 @@ get("/") do
   @raw_response = HTTP.get(api_url)
   @raw_string = @raw_response.to_s
   @parsed_data = JSON.parse(@raw_string)
-  
-  erb(:homepage)
-  
   @currencies = @parsed_data.fetch("currencies")
 
+  erb(:homepage)
+  
+end
+
+get ("/:first_symbol") do 
+
+    @the_symbol = params.fetch("first_symbol")
+
+  erb(:step_1)
 end
