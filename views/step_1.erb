@@ -1,7 +1,12 @@
 <h1>Convert <%= @the_symbol %></h1>
 
-<%= ENV.fetch("MY_KEY") %>
 
 <ul>
+
+  <% @currencies.keys.each do |symbol| %>
+    <li>
+     <a href="/<%= @the_symbol %>/<%= symbol %>">Convert 1 <%= @the_symbol %> to <%= symbol %>...</a>
+    </li>
+  <% end %>
 
 </ul>
